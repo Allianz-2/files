@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "building-personal-cloud",
+    "title": "Building a personal cloud at home",
+    "subtitle": "How I replaced paid cloud storage with a self-hosted setup that costs less, does more, and taught me a lot along the way.",
+    "date": "2026-05-12",
+    "tag": "Project",
+    "hero": "/assets/images/placeholders/hero-cloud.svg",
+    "thumb": "/assets/images/placeholders/thumb-cloud.svg"
+  },
+  {
+    "slug": "on-the-affordability-problem",
+    "title": "On the affordability problem in South African housing",
+    "subtitle": "Notes on a tangle of policy, geography, and economics — and why no single intervention seems to move the needle.",
+    "date": "2026-04-03",
+    "tag": "Essay",
+    "hero": "/assets/images/placeholders/hero-housing.svg",
+    "thumb": "/assets/images/placeholders/thumb-housing.svg"
+  },
+  {
+    "slug": "how-i-built-ruess",
+    "title": "How I built RUESS: a university scheduling system",
+    "subtitle": "Six months of designing, breaking, and rebuilding a course-allocation tool — and what I learned about building software inside an institution.",
+    "date": "2026-02-18",
+    "tag": "Project",
+    "hero": "/assets/images/placeholders/hero-ruess.svg",
+    "thumb": "/assets/images/placeholders/thumb-ruess.svg"
+  },
+  {
+    "slug": "tracking-local-outages",
+    "title": "A data pipeline for tracking local electricity outages",
+    "subtitle": "Scraping load-shedding schedules, geocoding suburbs, and turning a year of disruptions into a map you can actually read.",
+    "date": "2026-01-05",
+    "tag": "Data Analysis",
+    "hero": "/assets/images/placeholders/hero-outages.svg",
+    "thumb": "/assets/images/placeholders/thumb-outages.svg"
+  },
+  {
+    "slug": "worth-writing-about",
+    "title": "What makes a software project worth writing about",
+    "subtitle": "On the difference between projects you finish and projects you can teach from — and why the second category is much smaller.",
+    "date": "2025-11-14",
+    "tag": "Essay",
+    "hero": "/assets/images/placeholders/hero-writing.svg",
+    "thumb": "/assets/images/placeholders/thumb-writing.svg"
+  },
+  {
+    "slug": "setting-up-this-site",
+    "title": "Setting up this site: a technical walkthrough",
+    "subtitle": "The stack, the constraints, and the small decisions that add up to something pleasant to maintain.",
+    "date": "2025-09-29",
+    "tag": "Project",
+    "hero": "/assets/images/placeholders/hero-site.svg",
+    "thumb": "/assets/images/placeholders/thumb-site.svg"
+  },
+  {
+    "slug": "two-decades-of-rainfall",
+    "title": "Exploring two decades of South African rainfall data",
+    "subtitle": "What two terabytes of weather-station readings can — and can't — tell us about a changing climate at the local level.",
+    "date": "2025-06-04",
+    "tag": "Data Analysis",
+    "hero": "/assets/images/placeholders/hero-rainfall.svg",
+    "thumb": "/assets/images/placeholders/thumb-rainfall.svg"
+  },
+  {
+    "slug": "information-systems-notes",
+    "title": "Information systems: notes from building in a university context",
+    "subtitle": "Working software, organisational friction, and the slow art of getting useful things adopted by people who didn't ask for them.",
+    "date": "2025-04-22",
+    "tag": "Essay",
+    "hero": "/assets/images/placeholders/hero-systems.svg",
+    "thumb": "/assets/images/placeholders/thumb-systems.svg"
+  }
+]

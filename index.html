@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Theme-color: matches the OS/browser chrome to the page background.
+       Two values let the chrome adapt to light or dark theme automatically. -->
+  <meta name="theme-color" content="#F8F7F3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15140F" media="(prefers-color-scheme: dark)">
+
+  <title>Daniel Spies — Writing on software, data, and design</title>
+  <meta name="description" content="Personal site of Daniel Spies. Articles on software projects, data analysis, and notes on the practice of building things.">
+  <link rel="canonical" href="https://daniel-spies.com/">
+
+  <!-- Open Graph (Facebook, LinkedIn, Slack previews, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Daniel Spies">
+  <meta property="og:url" content="https://daniel-spies.com/">
+  <meta property="og:title" content="Daniel Spies — Writing on software, data, and design">
+  <meta property="og:description" content="Personal site of Daniel Spies. Articles on software projects, data analysis, and notes on the practice of building things.">
+  <!-- TODO: create /assets/images/og/default.png at 1200×630px. -->
+  <meta property="og:image" content="https://daniel-spies.com/assets/images/og/default.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Daniel Spies — Writing on software, data, and design">
+  <meta name="twitter:description" content="Personal site of Daniel Spies. Articles on software projects, data analysis, and notes on the practice of building things.">
+  <meta name="twitter:image" content="https://daniel-spies.com/assets/images/og/default.png">
+
+  <!-- Favicon — TODO: provide /favicon.svg and /favicon.ico. -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- RSS feed — TODO: generate /feed.xml in the build script. -->
+  <link rel="alternate" type="application/rss+xml" title="Daniel Spies" href="/feed.xml">
+
+  <!-- ============================================================
+       Theme bootstrap.
+       Runs synchronously BEFORE any paint so the page never
+       flashes the wrong theme. Reads the user's saved choice
+       from localStorage; if none, the OS preference takes over
+       via @media (prefers-color-scheme) in base.css.
+       ============================================================ -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (e) { /* localStorage blocked — fall back to OS pref */ }
+    })();
+  </script>
+
+  <!-- Fonts: preconnect first (DNS + TLS warm-up) then request. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap">
+
+  <!-- Stylesheets in cascade order: base → layout → components. -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <!-- Structured data: WebSite + author Person. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://daniel-spies.com/",
+    "name": "Daniel Spies",
+    "description": "Personal site of Daniel Spies. Articles on software projects, data analysis, and notes on the practice of building things.",
+    "author": {
+      "@type": "Person",
+      "name": "Daniel Spies",
+      "url": "https://daniel-spies.com/about.html"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Keyboard skip link — first focusable element on the page. -->
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-nav">
+    <div class="site-nav__inner">
+      <a href="/" class="site-nav__brand">Daniel Spies</a>
+
+      <!-- Hamburger toggle (mobile only — hidden by CSS on desktop). -->
+      <button type="button"
+              class="site-nav__toggle"
+              aria-expanded="false"
+              aria-controls="site-nav-menu"
+              aria-label="Open menu">
+        <span class="site-nav__toggle-line"></span>
+        <span class="site-nav__toggle-line"></span>
+        <span class="site-nav__toggle-line"></span>
+      </button>
+
+      <div class="site-nav__menu" id="site-nav-menu">
+        <nav aria-label="Primary">
+          <ul class="site-nav__links">
+            <li><a href="/"             class="site-nav__link" aria-current="page">Home</a></li>
+            <li><a href="/articles.html" class="site-nav__link">Articles</a></li>
+            <li><a href="/about.html"    class="site-nav__link">About</a></li>
+          </ul>
+        </nav>
+
+        <button type="button" class="theme-toggle" aria-label="Switch theme">
+          <!-- Moon shown on light theme; sun on dark. CSS handles the swap. -->
+          <svg class="theme-toggle__icon theme-toggle__icon--moon"
+               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--sun"
+               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main" id="main">
+
+    <!-- ============================================================
+         FEATURED HERO: the latest article.
+         Hardcoded here (not JS-rendered) so it loads instantly,
+         counts toward LCP, and works without JavaScript.
+         When publishing a new latest article, update BOTH:
+           1. This block (title, subtitle, tag, slug, hero image)
+           2. data/articles.json (prepend the new entry)
+         ============================================================ -->
+    <a href="/articles/building-personal-cloud.html"
+       class="hero hero--featured hero-link">
+      <!-- TODO: replace placeholder hero image with the article's
+           actual hero. Keep filename short and the format .webp or .jpg
+           at ~1600×900px for good quality without bloat. -->
+      <img src="/assets/images/placeholders/hero-cloud.svg"
+           alt=""
+           class="hero__image"
+           fetchpriority="high"
+           decoding="async">
+      <div class="hero__content">
+        <span class="hero__eyebrow">Project</span>
+        <h1 class="hero__title">Building a personal cloud at home</h1>
+        <p class="hero__subtitle">How I replaced paid cloud storage with a self-hosted setup that costs less, does more, and taught me a lot along the way.</p>
+      </div>
+    </a>
+
+    <!-- ============================================================
+         LATEST LIST.
+         Populated by /assets/js/articles.js from data/articles.json.
+           data-list           — marks this container for the script
+           data-list-variant   — "row" (with thumb) or "list" (compact)
+           data-list-skip="1"  — skip the first entry (it's the featured
+                                 hero above; avoids duplication)
+           data-list-limit="4" — render 4 entries total (so home shows
+                                 1 featured + 4 list = 5 articles total)
+         ============================================================ -->
+    <section class="column" aria-labelledby="latest-heading">
+      <h2 class="eyebrow" id="latest-heading">Latest</h2>
+
+      <div id="latest-list"
+           data-list
+           data-list-variant="row"
+           data-list-skip="1"
+           data-list-limit="4">
+        <noscript>
+          <p>Enable JavaScript to see the latest articles, or
+            <a href="/articles.html">view all articles</a>.</p>
+        </noscript>
+      </div>
+
+      <a href="/articles.html" class="arrow-link">
+        <span>All articles</span>
+        <span class="arrow-link__arrow" aria-hidden="true">→</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>© 2026 Daniel Spies</span>
+      <nav class="site-footer__links" aria-label="Footer">
+        <a href="/about.html"  class="site-footer__link">About</a>
+        <a href="/articles.html" class="site-footer__link">Articles</a>
+        <!-- TODO: confirm your GitHub username for this link. -->
+        <a href="https://github.com/daniel-spies" class="site-footer__link" rel="me">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Scripts at the end, deferred so they don't block render. -->
+  <script src="/assets/js/theme.js" defer></script>
+  <script src="/assets/js/articles.js" defer></script>
+</body>
+</html>

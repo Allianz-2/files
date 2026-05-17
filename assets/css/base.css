@@ -1,0 +1,347 @@
+/* =============================================================
+   BASE.CSS
+   Foundation layer: reset, design tokens, typography, a11y.
+   Loaded first. Page styles in layout.css / components.css.
+   ============================================================= */
+
+
+/* -------------------------------------------------------------
+   1. MODERN RESET
+   Based on Josh Comeau's reset, trimmed for this project.
+   ------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  /* Prevent iOS text-size bump on landscape rotation. */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+
+/* -------------------------------------------------------------
+   2. DESIGN TOKENS — LIGHT (default)
+   All colour, type-scale, spacing, and motion values are
+   declared here as CSS custom properties so the dark theme
+   only needs to override colour tokens.
+   ------------------------------------------------------------- */
+
+:root {
+  /* --- Surfaces ----------------------------------------- */
+  --bg:                #F8F7F3;          /* page background, matches wireframe */
+  --surface:           #FFFFFF;          /* elevated panels (rare in this design) */
+  --surface-muted:     #F1EFEA;          /* hover states, thumb fallback */
+
+  /* --- Text -------------------------------------------- */
+  --text-primary:      #1A1918;          /* body & headings */
+  --text-secondary:    #6B6A66;          /* muted labels, links — AA-compliant on --bg */
+  --text-tertiary:     #AEADA8;          /* dates, metadata */
+
+  /* Used over dark hero overlays — never themed. */
+  --text-on-hero:           #FFFFFF;
+  --text-on-hero-muted:     rgba(255, 255, 255, 0.72);
+  --text-on-hero-eyebrow:   rgba(255, 255, 255, 0.70);
+
+  /* --- Borders ---------------------------------------- */
+  --border-subtle:     rgba(26, 25, 24, 0.07);   /* row dividers */
+  --border-default:    rgba(26, 25, 24, 0.10);   /* nav, section dividers */
+  --border-strong:     rgba(26, 25, 24, 0.15);   /* filter chips */
+
+  /* --- Accent / interactive --------------------------- */
+  /* Editorial-flat aesthetic: there is no separate accent
+     hue. Active state inverts to the primary text colour. */
+  --accent:            var(--text-primary);
+  --accent-fg:         var(--bg);
+
+  /* --- Tag chip --------------------------------------- */
+  --tag-bg:            #ECEAE3;
+  --tag-fg:            #6B6A66;
+
+  /* --- Hero overlay (gradient on hero images) ---------- */
+  --hero-overlay: linear-gradient(
+    to top,
+    rgba(10, 9, 8, 0.82) 0%,
+    rgba(10, 9, 8, 0.38) 55%,
+    rgba(10, 9, 8, 0.04) 100%
+  );
+
+  /* --- Type scale (fluid) ----------------------------- */
+  /* clamp(min, preferred, max). Scales smoothly between viewports. */
+  --fs-display:   clamp(2rem,    1.4rem + 2.6vw, 3.25rem);   /* featured hero title */
+  --fs-h1:        clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);    /* page hero heading */
+  --fs-h2:        clamp(1.25rem, 1.05rem + 0.8vw, 1.5rem);   /* article subheads */
+  --fs-h3:        1.125rem;
+  --fs-body:      1rem;
+  --fs-small:     0.875rem;
+  --fs-meta:      0.75rem;
+  --fs-eyebrow:   0.6875rem;
+
+  /* --- Spacing scale (8px base, with 4px half-steps) --- */
+  --space-1:  0.25rem;   /*  4px */
+  --space-2:  0.5rem;    /*  8px */
+  --space-3:  0.75rem;   /* 12px */
+  --space-4:  1rem;      /* 16px */
+  --space-5:  1.5rem;    /* 24px */
+  --space-6:  2rem;      /* 32px */
+  --space-7:  3rem;      /* 48px */
+  --space-8:  4rem;      /* 64px */
+  --space-9:  6rem;      /* 96px */
+
+  /* --- Layout containers ------------------------------ */
+  --max-prose:        40rem;   /* 640px — article body column, matches wireframe */
+  --max-container:    72rem;   /* 1152px — nav, hero edges on very wide screens */
+  --nav-h:            64px;
+  --hero-feat-h:      clamp(360px, 56vh, 560px);   /* home featured hero */
+  --hero-page-h:      clamp(200px, 32vh, 320px);   /* about / articles hero */
+
+  /* --- Motion ----------------------------------------- */
+  --t-fast:           120ms ease;
+  --t-default:        200ms ease;
+  --t-slow:           360ms ease;
+
+  /* --- Radius (kept tiny — flat aesthetic) ------------ */
+  --radius-sm:        2px;
+  --radius-md:        4px;
+
+  /* --- Shadow (used sparingly) ------------------------ */
+  --shadow-focus:     0 0 0 3px rgba(26, 25, 24, 0.12);
+}
+
+
+/* -------------------------------------------------------------
+   3. DESIGN TOKENS — DARK
+   Only colour overrides. Structural tokens (spacing, type,
+   layout) remain the same across themes.
+   ------------------------------------------------------------- */
+
+[data-theme="dark"] {
+  --bg:                #15140F;
+  --surface:           #1F1E1A;
+  --surface-muted:     #1F1E1A;
+
+  --text-primary:      #F0EDE5;
+  --text-secondary:    #9C9A92;
+  --text-tertiary:     #6E6C65;
+
+  --border-subtle:     rgba(240, 237, 229, 0.06);
+  --border-default:    rgba(240, 237, 229, 0.10);
+  --border-strong:     rgba(240, 237, 229, 0.15);
+
+  --tag-bg:            #2A2925;
+  --tag-fg:            #B5B2A8;
+
+  --shadow-focus:      0 0 0 3px rgba(240, 237, 229, 0.18);
+}
+
+/* Respect OS preference on first visit when no choice is saved.
+   theme.js will set data-theme="dark" explicitly when needed; this
+   block covers the no-JS / no-stored-preference initial render. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:                #15140F;
+    --surface:           #1F1E1A;
+    --surface-muted:     #1F1E1A;
+
+    --text-primary:      #F0EDE5;
+    --text-secondary:    #9C9A92;
+    --text-tertiary:     #6E6C65;
+
+    --border-subtle:     rgba(240, 237, 229, 0.06);
+    --border-default:    rgba(240, 237, 229, 0.10);
+    --border-strong:     rgba(240, 237, 229, 0.15);
+
+    --tag-bg:            #2A2925;
+    --tag-fg:            #B5B2A8;
+
+    --shadow-focus:      0 0 0 3px rgba(240, 237, 229, 0.18);
+  }
+}
+
+
+/* -------------------------------------------------------------
+   4. TYPOGRAPHY
+   Fonts are loaded from Google Fonts via <link> in each
+   HTML <head>. Stacks here ensure graceful fallback.
+   ------------------------------------------------------------- */
+
+/* TODO: confirm font choices — currently Source Serif 4 (headings)
+   + Inter (body/UI). Both have an editorial-but-clean feel close
+   to aeon.co. Swap by editing the two stacks below + the <link>
+   tags in each HTML file. */
+
+html {
+  font-family: 'Inter',
+               -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-feature-settings: 'cv11', 'ss01';   /* Inter: nicer 'a', single-storey 'l' */
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  /* Smooth theme transitions, but skip for users who'd rather not. */
+  transition: background-color var(--t-default),
+              color var(--t-default);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Source Serif 4',
+               Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+p {
+  line-height: 1.75;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+a:hover {
+  color: var(--text-secondary);
+}
+
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco,
+               Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-size: 0.9em;
+  background: var(--surface-muted);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+}
+
+
+/* -------------------------------------------------------------
+   5. ACCESSIBILITY UTILITIES
+   ------------------------------------------------------------- */
+
+/* Visually hide content but keep it for screen readers. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link — appears on keyboard focus only, jumps past nav. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--space-4);
+  background: var(--text-primary);
+  color: var(--bg);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--fs-small);
+  z-index: 100;
+  transition: top var(--t-fast);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Keyboard focus ring — only when actually navigating by keyboard. */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Selection — invert. */
+::selection {
+  background: var(--text-primary);
+  color: var(--bg);
+}
+
+/* Respect users who've opted out of motion at the OS level. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

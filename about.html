@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#F8F7F3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#15140F" media="(prefers-color-scheme: dark)">
+
+  <title>About — Daniel Spies</title>
+  <meta name="description" content="About Daniel Spies — a developer based in the Western Cape writing on software, data, and the practice of building things.">
+  <link rel="canonical" href="https://daniel-spies.com/about.html">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Daniel Spies">
+  <meta property="og:url" content="https://daniel-spies.com/about.html">
+  <meta property="og:title" content="About — Daniel Spies">
+  <meta property="og:description" content="About Daniel Spies — a developer based in the Western Cape writing on software, data, and the practice of building things.">
+  <meta property="og:image" content="https://daniel-spies.com/assets/images/og/default.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — Daniel Spies">
+  <meta name="twitter:description" content="About Daniel Spies — a developer based in the Western Cape writing on software, data, and the practice of building things.">
+  <meta name="twitter:image" content="https://daniel-spies.com/assets/images/og/default.png">
+
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="alternate" type="application/rss+xml" title="Daniel Spies" href="/feed.xml">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', saved);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap">
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Daniel Spies",
+    "url": "https://daniel-spies.com/",
+    "sameAs": [
+      "https://github.com/daniel-spies",
+      "https://www.linkedin.com/in/daniel-spies"
+    ],
+    "jobTitle": "Software Developer",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Paarl",
+      "addressRegion": "Western Cape",
+      "addressCountry": "ZA"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-nav">
+    <div class="site-nav__inner">
+      <a href="/" class="site-nav__brand">Daniel Spies</a>
+
+      <button type="button"
+              class="site-nav__toggle"
+              aria-expanded="false"
+              aria-controls="site-nav-menu"
+              aria-label="Open menu">
+        <span class="site-nav__toggle-line"></span>
+        <span class="site-nav__toggle-line"></span>
+        <span class="site-nav__toggle-line"></span>
+      </button>
+
+      <div class="site-nav__menu" id="site-nav-menu">
+        <nav aria-label="Primary">
+          <ul class="site-nav__links">
+            <li><a href="/"             class="site-nav__link">Home</a></li>
+            <li><a href="/articles.html" class="site-nav__link">Articles</a></li>
+            <li><a href="/about.html"    class="site-nav__link" aria-current="page">About</a></li>
+          </ul>
+        </nav>
+
+        <button type="button" class="theme-toggle" aria-label="Switch theme">
+          <svg class="theme-toggle__icon theme-toggle__icon--moon"
+               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="theme-toggle__icon theme-toggle__icon--sun"
+               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main" id="main">
+
+    <!-- Page hero: shorter than the home featured hero, heading only. -->
+    <section class="hero hero--page" aria-labelledby="about-heading">
+      <!-- TODO: replace with a hero image that suits "About". -->
+      <img src="/assets/images/placeholders/hero-about.svg"
+           alt=""
+           class="hero__image"
+           fetchpriority="high"
+           decoding="async">
+      <div class="hero__content">
+        <h1 class="hero__heading" id="about-heading">About</h1>
+      </div>
+    </section>
+
+    <div class="column">
+
+      <!-- TODO: replace bio paragraphs with your own. Two short
+           paragraphs reads well; one feels thin, four feels long. -->
+      <p class="bio">I'm a software developer based in the Western Cape. I work mostly on web applications and small data tools — the kind of projects where careful design up front saves a great deal of debugging later.</p>
+
+      <p class="bio">This site is where I write about that work. Some posts are walkthroughs of projects I've built; others are notes on the practice of building software, or things I've been reading and thinking about.</p>
+
+      <hr class="divider">
+
+      <h2 class="eyebrow">Currently</h2>
+      <ul class="currently">
+        <!-- TODO: keep these to ~3 bullets and update every few months
+             so the page feels alive without becoming a maintenance task. -->
+        <li class="currently__item">→ Working on a self-hosted backup project for personal archives</li>
+        <li class="currently__item">→ Reading <em>Designing Data-Intensive Applications</em> by Martin Kleppmann</li>
+        <li class="currently__item">→ Paarl, Western Cape</li>
+      </ul>
+
+      <hr class="divider">
+
+      <h2 class="eyebrow">Get in touch</h2>
+      <div class="socials">
+        <!-- TODO: confirm handles. mailto: is plain — swap to a form
+             (e.g. Formspree) later if spam becomes a problem. -->
+        <a href="https://github.com/daniel-spies" class="socials__link" rel="me">GitHub</a>
+        <a href="https://www.linkedin.com/in/daniel-spies" class="socials__link" rel="me">LinkedIn</a>
+        <a href="mailto:hello@daniel-spies.com" class="socials__link">Email</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>© 2026 Daniel Spies</span>
+      <nav class="site-footer__links" aria-label="Footer">
+        <a href="/about.html"  class="site-footer__link">About</a>
+        <a href="/articles.html" class="site-footer__link">Articles</a>
+        <a href="https://github.com/daniel-spies" class="site-footer__link" rel="me">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/assets/js/theme.js" defer></script>
+</body>
+</html>
